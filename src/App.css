@@ -1,38 +1,356 @@
+/*boiler plate project set-up*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
 .App {
+  height: 100%;
+}
+
+.App {
+  justify-content: flex-start !important;
+  overflow-y: scroll;
+}
+
+:root {
+  --cyan: rgb(100,210,255);
+  --pink: rgb(255,55,95);
+  --grey: rgb(172, 172, 173);
+  --lightGrey: rgb(242, 242, 247);
+  --darkGrey: rgb(99,99,102);
+}
+
+/***************/
+
+.row,
+.col {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1,h2,h3,h4,h5,
+span,a,p,div,
+button,select,input,
+.link,.navlink {
+  font-family: 'Heebo';
+  font-weight: 300;
+  color: #fff;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  text-transform: uppercase;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+  text-decoration: underline;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.link,
+.navlink {
+  text-decoration: none;
+}
+
+.navlink {
+  padding: 7px 22px;
+  border-radius: 25px;
+}
+
+.navlink:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.navlink__cart {
+  position: relative;
+}
+.navlink__cart--counter {
+  position: absolute;
+  height: max-content;
+  width: max-content;
+  border-radius: 100px;
+  padding: 2px 8px;
+  font-size: 14px;
+  border: 1px solid var(--lightGrey);
+  background-color: var(--pink);
+  color: #fff;
+  top: -25%;
+  right: -5%;
+}
+
+.navlink--active {
+  background-color: rgba(255,255,255,0.3);
+}
+
+button,
+select,
+input,
+.link {
+  outline: none;
+  border: none;
+  font-size: 18px;
+  background-color: #fff;
+  border-radius: 25px;
+}
+
+button:hover,
+select:hover,
+input:hover,
+.link {
+  cursor: pointer;
+}
+
+button,
+.link {
+  padding: 10px 25px;
+  text-transform: uppercase;
+}
+
+button,
+input,
+input::placeholder,
+.link {
+  color: var(--grey);
+}
+
+button div {
+  color: rgb(99,99,102);
+}
+
+.link-home {
+  padding: 0px;
+  background-color: transparent;
+}
+
+input {
+  padding: 7px 0px;
+  padding-left: 10px;
+  width: 450px;
+}
+
+.input__date {
+  padding-right: 15px;
+  padding-left: 70px;
+}
+
+.icon-mr {
+  margin-right: 7.5px;
+}
+
+.transition {
+  transition: all 0.15s;
+}
+
+.round {
+  border-radius: 1px;
+}
+
+.hidden {
+  opacity: 0%;
+  visibility: hidden;
+  z-index: -5;
+}
+
+.main,
+.main__cont {
+  width: 100% !important;
+}
+
+/*parent has to be display flex for child to flex grow*/
+.main {
+  flex: 2;
+  justify-content: flex-start;
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('./Res/itunes-background.png');
+  background-size: cover;
+}
+
+.main__header {
+  height: 400px;
+}
+
+.main__small-header {
+  height: 200px;
+}
+
+.main__cont {
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.main__h1 {
+  margin: 20vh auto;
+}
+
+
+/***************/
+
+
+.navbar {
+  width: 100%;
+  min-height: 9%;
+  height: 9%;
+  padding: 0px 40px;
+  justify-content: space-between;
+  background-color: var(--grey);
+}
+
+.home__grid {
+  padding: 100px 0px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   align-items: center;
+  justify-items: center;
+  row-gap: 50px;
+}
+
+.home__img {
+  width: 500px;
+  object-fit: cover;
+}
+
+.item {
+  height: 350px;
+  min-height: 350px;
+  width: 350px;
+  margin: 0px auto;
+  margin-bottom: 25px;
+  background-color: rgba(255,255,255,0.4);
+  justify-content: space-between;
+  padding: 35px 10px;
+}
+
+.info__cont {
+  width: 100%;
+  height: 100%;
+}
+
+.cart__cont,
+.cartItem,
+.cartItem__del {
+  border-radius: 20px;
+}
+
+.cart__cont {
+  height: max-content;
+  min-height: 600px;
+  width: 90%;
+  justify-content: flex-start;
+  padding-top: 25px;
+  background-color: rgba(255,255,225,0.3);
+  border: 2px solid var(--lightGrey);
+  margin-bottom: 25px;
+}
+
+.cartItem {
+  position: relative;
+  width: 97.5%;
+  background-color: var(--lightGrey);
+  padding: 10px 30px;
+  margin-bottom: 25px;
+  justify-content: space-between;
+}
+
+.cartItem__del {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.85);
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 5;
 }
 
-.App-link {
-  color: #61dafb;
+.cartItem__del h1 {
+  color: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cartItem:hover {
+  cursor: pointer;
+}
+
+.cartItem * {
+  color: var(--darkGrey);
+  transition: 0.15s;
+}
+
+.cartItem__img {
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+}
+
+.checkout__form {
+  width: 60%;
+  height: 65%;
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 20px;
+}
+
+.checkout__grid {
+  height: 50%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+
+.checkout__msg-cont {
+  height: 30%;
+}
+
+
+/* STRIPE STYLING*/
+.FormGroup {
+  width: 60%;
+	margin: 0 15px 20px;
+	padding: 0;
+	border-style: none;
+	background-color: #7795f8;
+	will-change: opacity, transform;
+	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #829fff;
+	border-radius: 20px;
+}
+
+.FormRow {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-left: 15px;
+	border-top: 1px solid #819efc;
+}
+
+.StripeElement--webkit-autofill {
+	background: transparent !important;
+}
+
+.StripeElement {
+	width: 100%;
+	padding: 11px 15px 11px 0;
 }
