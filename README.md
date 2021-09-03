@@ -4,7 +4,7 @@ Itunes Ecommerce App created in React, using Context, hooks and sample payment u
 
 Npm packages: Stripe, Cors, Axios, React-Router-Dom, Express <br/>
 
-Itunes API: //https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/ <br/>
+Itunes API: https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/ <br/>
 
 Video Demo: https://drive.google.com/file/d/1GG-k3-hlHlCGgd3y0jorvK7GGop1-hVN/view?usp=sharing <br/>
 
